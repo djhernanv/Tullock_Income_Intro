@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load humanize %}
+
+{% block title %}
+    Task Instructions (2/3)
+{% endblock %}
+
+{% block content %}
+
+<div class="instructions well well-lg">
+    <p>
+        In the following series of sequences that lasts {{ Constants.time_in_minutes|apnumber }} minutes you can earn money. <strong>For each sequence in which you count the correct number of "a"s </strong>
+        you will receive
+        <strong>{{ Constants.tokensper_string }} Token</strong> (Tk). At the end of the experiment, one Token will be converted into <strong>{{ Constants.eurosper_token }} Euro</strong>.
+        Every participant has to count the same letter ( <strong>a</strong> ) in the same sequences of letters that are displayed in the same order such that everybody faces the same difficulty.
+    </p>
+    <p>
+        You will start solving short sequences. After each sequence you solve, the <strong>length will increase
+        by {{ Constants.increase_per_string|apnumber }} characters</strong>.
+    </p>
+    <p>
+        At any time, you have the option to change to the <strong><em>switch mode</em></strong>. In this mode, you will earn <strong>1 Token
+        per {{ Constants.secondsper_token|apnumber }} seconds</strong> without solving any tasks. For instance, spending 13 seconds in the
+        <strong><em>switch mode</em></strong> earns you 1.3 Tk. Think about when it is best for you change to the <strong><em>switch mode.</em></strong><br>
+        <div class="alert alert-warning" role="alert">
+        <U>Important:</U> Once you are in the <strong><em>switch mode</em></strong> you cannot go back to the letter counting task!
+        </div>
+    </p>
+    <p>
+        Are you ready to start?
+    </p>
+</div>
+
+    {% next_button %}
+
+{% endblock %}

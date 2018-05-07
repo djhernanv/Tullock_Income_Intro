@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Feedback Trial Round {{ subsession.round_number }}
+{% endblock %}
+
+{% block content %}
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Your earnings from this round:</div>
+  <div class="panel-body">
+    You solved {{ player.output|floatformat:0 }} sequences which earns you <strong>{{ player.income_strings|c|floatformat:0 }}</strong> Tokens.<br>
+    You spent {{player.time_in_switch}} seconds in the <em>switch mode</em> which earns you <strong>{{player.output_in_switch|c|floatformat:1}}</strong> Tokens.<br><br>
+    Your total earnings in this round are therefore <strong>{{player.income|c|floatformat:1}}</strong> Tokens. <br>
+  </div>
+</div>
+
+    <table class="table">
+        <tr>
+            <th>Your Income for This Round</th>
+            <th>Your Investment</th>
+            <th>You Keep</th>
+            <th>You Earn</th>
+            <th>Your Prob of Winning</th>
+            <th> Your new Endow</th>
+        </tr>
+
+        <tr>
+            <td>{{ player.income }}</td>
+            <td>{{ player.investment_amount }}</td>
+            <td>{{ player.rest_endowment}}</td>
+            <td>
+                {% if player.is_winner %}
+                    {{ Constants.max_endowment }}
+                {% else %}
+                    {{ Constants.min_endowment }}
+                {% endif %}
+            </td>
+            <td>{{ player.prob | floatformat:"-2" }}</td>
+            <td>{{ player.endowment_new }}</td>
+        </tr>
+
+    </table>
+
+{% next_button %}
+
+{% endblock %}
