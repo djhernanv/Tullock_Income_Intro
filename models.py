@@ -10,17 +10,17 @@ from otree.common import Currency as c, currency_range, safe_json
 from otree.constants import BaseConstants
 from otree.models import BaseSubsession, BaseGroup, BasePlayer
 
-author = 'AS,GS,HV,KS'
+author = 'Hernán Villamizar'
 
 doc = """
-Real Effort Task - Letter Count
-This is the introduction to a Tullock Contest in form of a Real Effort Task
+Income Inequality and Effort:
+This is the introduction to a Tullock Contest in form of a Real Effort Task and Investment decision
 It welcomes the participants and helps them trough the first stages
 """
 
 
 class Constants(BaseConstants):
-    name_in_url = 'tullock_Intro_RET'
+    name_in_url = 'tullock_income_intro'
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
@@ -35,7 +35,7 @@ class Constants(BaseConstants):
     increase_per_string = 4
 
     # this is a summarized instruction to be shown under each sequence as a reminder:
-    instructions_summarized = 'Tullock_Intro_RET/InstructionsSum.html'
+    instructions_summarized = 'tullock_income_intro/InstructionsSum.html'
 
 
 class Subsession(BaseSubsession):
