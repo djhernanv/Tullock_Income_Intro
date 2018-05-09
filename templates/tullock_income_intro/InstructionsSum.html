@@ -10,7 +10,7 @@
         Your task is to count how many <strong> "a"s </strong> there are in the sequence of characters currently displayed.
     </p>
     <p>
-        {% if subsession.round > 1 %}
+        {% if subsession.round_number > 1 %}
             Per correctly solved sequence you will get {{ Constants.tokensper_string }} or {{ Constants.tokensper_string_high }}
             Token depending on whether or not you won the prize in the last round.
             {% else %}
