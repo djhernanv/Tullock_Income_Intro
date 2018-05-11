@@ -155,7 +155,7 @@ class HighWageInstructions(Page):
 page_sequence = [
     #Welcome,
     #Introduction,
-    #TaskInstructions,
+    TaskInstructions,
     #Round0,
     #WaitingString,
     #SwitchInstructions,

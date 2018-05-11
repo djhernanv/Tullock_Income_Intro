@@ -2,6 +2,10 @@
 {% load staticfiles otree_tags %}
 {% load humanize %}
 
+{% block styles %}
+    <link href="{% static "tullock_income_intro/css/bootstrap_tour.min.css" %}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}
     Task Instructions (3/3)
 {% endblock %}
@@ -26,4 +30,6 @@
 
     {% next_button %}
 
-{% endblock %}
+    {% endblock %}
+
+
