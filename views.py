@@ -158,7 +158,7 @@ page_sequence = [
     TaskInstructions,
     #Round0,
     #WaitingString,
-    #SwitchInstructions,
+    SwitchInstructions,
     #RET,
     #Waiting,  # calculates incomes
     #Feedback,
