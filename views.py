@@ -129,7 +129,7 @@ class RET(Page):
                    't143',
                    't144',
                    't145',
-                   'output',
+                   'production_strings',
                    'switch1',
                    'additional_time'
                    ]
@@ -144,7 +144,13 @@ class Waiting(WaitPage):
 
 
 class Feedback(Page):
-    pass
+    def vars_for_template(self):
+        if self.round_number > 1:
+            return {'production_strings_last': self.player.in_round(self.round_number - 1).production_strings,
+                    'income_strings_last': self.player.in_round(self.round_number - 1).income_strings,
+                    'time_in_switch_last': self.player.in_round(self.round_number - 1).time_in_switch,
+                    'income_in_switch_last': self.player.in_round(self.round_number - 1).income_in_switch,
+                    'income_last': self.player.in_round(self.round_number - 1).income}
 
 
 class HighWageInstructions(Page):
@@ -153,14 +159,14 @@ class HighWageInstructions(Page):
 
 
 page_sequence = [
-    #Welcome,
-    #Introduction,
+    Welcome,
+    Introduction,
     TaskInstructions,
-    #Round0,
-    #WaitingString,
+    Round0,
+    WaitingString,
     SwitchInstructions,
-    #RET,
-    #Waiting,  # calculates incomes
-    #Feedback,
+    RET,
+    Waiting,  # calculates incomes
+    Feedback,
     HighWageInstructions,
 ]

@@ -7,41 +7,28 @@
 
 {% block content %}
 
+
 <div class="panel panel-primary">
   <div class="panel-heading">Your earnings from this round:</div>
   <div class="panel-body">
-    You solved {{ player.output|floatformat:0 }} sequences which earns you <strong>{{ player.income_strings|c|floatformat:0 }}</strong> Tokens.<br>
-    You spent {{player.time_in_switch}} seconds in the <em>switch mode</em> which earns you <strong>{{player.output_in_switch|c|floatformat:1}}</strong> Tokens.<br><br>
+    You solved {{ player.production_strings|floatformat:0 }} sequences which earns you <strong>{{ player.income_strings|c|floatformat:0 }}</strong> Tokens.<br>
+    You spent {{player.time_in_switch}} seconds in the <em>switch mode</em> which earns you <strong>{{player.income_in_switch|c|floatformat:1}}</strong> Tokens.<br><br>
     Your total earnings in this round are therefore <strong>{{player.income|c|floatformat:1}}</strong> Tokens. <br>
   </div>
 </div>
 
-    <table class="table">
-        <tr>
-            <th>Your Income for This Round</th>
-            <th>Your Investment</th>
-            <th>You Keep</th>
-            <th>You Earn</th>
-            <th>Your Prob of Winning</th>
-            <th> Your new Endow</th>
-        </tr>
+        {% if subsession.round_number == 2 %}
+    <div class="panel panel-info">
+  <div class="panel-heading">Your earnings in the previous round:</div>
+  <div class="panel-body">
+    You solved {{ production_strings_last|floatformat:0 }} sequences which earns you <strong>{{ income_strings_last|c|floatformat:0 }}</strong> Tokens.<br>
+    You spent {{time_in_switch_last}} seconds in the <em>switch mode</em>
+      which earns you <strong>{{income_in_switch_last|c|floatformat:1}}</strong> Tokens.<br><br>
+    Your total earnings in this round are therefore <strong>{{income_last|c|floatformat:1}}</strong> Tokens. <br>
+  </div>
+</div>
 
-        <tr>
-            <td>{{ player.income }}</td>
-            <td>{{ player.investment_amount }}</td>
-            <td>{{ player.rest_endowment}}</td>
-            <td>
-                {% if player.is_winner %}
-                    {{ Constants.max_endowment }}
-                {% else %}
-                    {{ Constants.min_endowment }}
-                {% endif %}
-            </td>
-            <td>{{ player.prob | floatformat:"-2" }}</td>
-            <td>{{ player.endowment_new }}</td>
-        </tr>
-
-    </table>
+    {% endif %}
 
 {% next_button %}
 

@@ -43,24 +43,25 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    total_output = models.IntegerField(initial=0)  # define group variable to calculate probabilities
+
+    total_production = models.IntegerField(initial=0)  # define group variable
 
     # determine total output
 
-    def set_total_output(self):
-        total_output = sum(p.output for p in self.get_players())  # retrieves a list of all individual outputs
+    def set_total_production(self):
+        total_production = sum(p.production_strings for p in self.get_players())  # retrieves a list of all individual productions
         # and sums them up
-        self.total_output = total_output
+        self.total_production = total_production
 
     # determine income:
     def set_incomes(self):
         for p in self.get_players():
             if self.round_number == 2:  # second round is paid to the high wage
-                p.income_strings = p.output * Constants.tokensper_string_high
-                p.income = p.income_strings + p.output_in_switch
+                p.income_strings = p.production_strings * Constants.tokensper_string_high
+                p.income = p.income_strings + p.income_in_switch
             else:
-                p.income_strings = p.output * Constants.tokensper_string
-                p.income = p.income_strings + p.output_in_switch
+                p.income_strings = p.production_strings * Constants.tokensper_string
+                p.income = p.income_strings + p.income_in_switch
 
 
 class Player(BasePlayer):
@@ -70,12 +71,11 @@ class Player(BasePlayer):
 
     # Number of Tasks Solved
     output0 = models.FloatField(default=0)
-    output = models.FloatField(default=0)
+    production_strings = models.FloatField(default=0)
 
     # available income after solving RET
     income = models.FloatField(default=0)
     income_strings = models.FloatField(default=0)
-
 
     # Variable is 1 when entering switch
     switch1 = models.PositiveIntegerField(default=0)
@@ -86,9 +86,9 @@ class Player(BasePlayer):
 
     additional_time = models.PositiveIntegerField(default=0)
 
-    output_in_switch = models.FloatField(default=0)
+    income_in_switch = models.FloatField(default=0)
 
-    total_output = models.FloatField(default=0)
+    total_production = models.FloatField(default=0)
 
     # Time Needed to Solve Task i in Round j with tjxi
 
@@ -200,7 +200,7 @@ class Player(BasePlayer):
         self.time_in_switch = self.switch1 * (Constants.t - self.switch_time)
 
         # This variable determines the tokens per string received
-        self.output_in_switch = self.time_in_switch / Constants.secondsper_token
+        self.income_in_switch = self.time_in_switch / Constants.secondsper_token
 
-        # This is the sum of strings + output in switch
-        self.total_output = self.output + self.output_in_switch
+        # This is the sum of strings + production in switch
+        self.total_production = self.production_strings + self.income_in_switch

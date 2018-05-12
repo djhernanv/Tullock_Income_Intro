@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block styles %}
-    <link href="{% static "project2cont/css/Round.css" %}" rel="stylesheet">
+    <link href="{% static "tullock_income_intro/css/Round.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -16,6 +16,9 @@
 
 <div class="jumbotron">
 
+<span id="min">00</span>:<span id="sec">00</span>
+&nbsp; Time spent solving current sequence
+
 <div id="string">
 </div>
 
@@ -23,8 +26,7 @@
 
 <input type="text" id="player_guess" size="4" autofocus>
 </input> &nbsp;
-<span id="min">00</span>:<span id="sec">00</span>
-&nbsp; Time spent solving current sequence
+
 
 <br>
 
