@@ -14,8 +14,9 @@
 
 <div class="jumbotron">
 
+<span class="label label-primary">
 <span id="min">00</span>:<span id="sec">00</span>
-&nbsp; Time spent solving current sequence
+</span>
 
 <div id="string">
 </div>
@@ -27,7 +28,7 @@
 
 <br>
 
-<input type="hidden" name="output" id="id_output"/>
+<input type="hidden" name="production_strings" id="id_production_strings"/>
 
 <p align="right">
     <!-- Button trigger modal -->
@@ -124,7 +125,7 @@ me.check = function(x) {
     el.value = me.sec;
     el.id = el.name
 
-    var answers = document.getElementById("id_output");
+    var answers = document.getElementById("id_production_strings");
     answers.appendChild(el);
 
     if (x === a_count[me.index]) {
@@ -144,7 +145,7 @@ me.makeguess = function(x) {
         var string = document.getElementById("string");
         string.innerHTML = string_list[x];
 
-        document.getElementById("id_output").setAttribute("value",me.index);
+        document.getElementById("id_production_strings").setAttribute("value",me.index);
     }
 }
 
@@ -179,7 +180,7 @@ document.getElementById("Switch_button").addEventListener("click", function() {
     el.name = "additionaltime1"
     el.value = me.sec;
     el.id = el.name
-    var answers = document.getElementById("id_output");
+    var answers = document.getElementById("id_production_strings");
     answers.appendChild(el);
     var pattern = document.getElementsByClassName("jumbotron")[0];
         pattern.classList.add("hidden");

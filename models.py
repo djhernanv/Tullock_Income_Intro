@@ -25,6 +25,8 @@ class Constants(BaseConstants):
     num_rounds = 2  # first round is with low, second with high wage
 
     t = 60  # Total Time in seconds available for both solving and staying in switch
+    # make sure to change images in instructions to be consistent with max time
+
     time_in_minutes = t/60
 
     tokensper_string = 1

@@ -14,3 +14,7 @@
     display: flex;
     justify-content: center;
 }
+
+#player_guess {
+    text-align: center;
+}

@@ -18,7 +18,7 @@ me.makeguess = null;
 // seems harmless, but is not fundamental
 me.pad = function(val) {
     return val > 9 ? val : "0" + val;
-}
+};
 
 // This function first sets the time to zero and then increments the counter every 1000ms by 1. Minutes (sec modulo 60) and seconds separately
 // only called once at window.onload
