@@ -24,9 +24,9 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
-    t = 60  # Total Time in seconds available for both solving and staying in switch
+    t = 240  # Total Time in seconds available for both solving and staying in switch
     # make sure to change images in instructions to be consistent with max time
-
+    # also instructions tables
     time_in_minutes = t/60
 
     tokensper_string = 1
@@ -70,6 +70,12 @@ class Player(BasePlayer):
     # give each player a letter for recognition (Important for Feedback)
     def role(self):
         return string.ascii_uppercase[self.id_in_group - 1]
+
+    # Control Instructions Variables
+    solution_1 = models.PositiveIntegerField()
+    solution_2 = models.PositiveIntegerField()
+
+    solution_3 = models.IntegerField()
 
     # Number of Tasks Solved
     output0 = models.FloatField(default=0)

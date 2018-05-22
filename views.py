@@ -75,11 +75,30 @@ class SwitchInstructions(Page):
         return self.round_number == 1
 
 
+class ControlInstructions(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+    form_model = models.Player
+    form_fields = ['solution_1',
+                   'solution_2',
+                   'solution_3',
+                   ]
+
+    def incorrect_answer(self, values):
+        print('value is', values)
+        if values["solution_1"] != 24 or values["solution_2"] != 4 or values["solution_3"] != 17:
+            return 'Check your answer and try again'
+
+
+class StartSubmit(Page):
+    pass
+
+
 # correct to allow for variable number of strings
 # for now created with:
 # for i in range(10, 46):
 #    print('\'t1{}\','.format(i))
-
 
 class RET(Page):
     timeout_seconds = Constants.t
@@ -165,6 +184,8 @@ page_sequence = [
     Round0,
     WaitingString,
     SwitchInstructions,
+    ControlInstructions,
+    StartSubmit,
     RET,
     Waiting,  # calculates incomes
     Feedback,

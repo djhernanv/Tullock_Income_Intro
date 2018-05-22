@@ -9,11 +9,11 @@
     word-break: break-all;
 }
 
+/*
 #Switch_mode {
     font-size: 2em;
-    display: flex;
-    justify-content: center;
 }
+*/
 
 #player_guess {
     text-align: center;

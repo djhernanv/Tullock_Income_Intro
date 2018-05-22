@@ -3,23 +3,22 @@
 {% load humanize %}
 
 {% block title %}
-    Earnings and Switch
+    Earnings and "Switch"
 {% endblock %}
 
 {% block content %}
 
 <div class="instructions well well-lg">
     <p>
-        In the following series of sequences that each lasts {{ Constants.time_in_minutes|apnumber }} minutes you can earn money.
+        In the following rounds you can earn money.
         <strong>For each sequence in which you count the correct number of "a"s </strong>
         you will receive <strong>{{ Constants.tokensper_string }} Token</strong> (Tk). That is your wage.
         At the end of this session, one Token will be converted into <strong>{{ Constants.eurosper_token }} Euro</strong>.
-        Every participant has to count the same letter ( <strong>a</strong> ) in the same sequences of letters that are displayed in the same order such that
-        <strong>everybody faces the same difficulty in counting the letters</strong>.
     </p>
     <p>
         You will start solving short sequences. After each sequence you solve, the <strong>length will increase
-        by {{ Constants.increase_per_string|apnumber }} characters</strong>.
+        by {{ Constants.increase_per_string|apnumber }} characters</strong>. The sequences presented and their order are identical for all participants.
+        Also, all participants have to count the same letter ( <strong>a</strong> ) such that <strong>everybody faces the same difficulty in solving the task</strong>.
     </p>
     <p>
         At any time, you have the option to change to the <strong><em>switch mode</em></strong>. In this mode, you will earn <strong>1 Token
@@ -27,29 +26,84 @@
         <strong><em>switch mode</em></strong> earns you 1.3 Tk. Since the difficulty of the task increases,
         at a certain point you will earn more from staying in the <em>switch mode</em>
         than from solving tasks. Think therefore about when it is best for you change to the <strong><em>switch mode.</em></strong>
+
+        Each round lasts {{ Constants.time_in_minutes|apnumber }} minutes in which you can either solve tasks or spend time in
+        "switch" mode. A timer in yellow above the sequence will show you the time left in the current round and a green counter
+        will tell you how many sequences you have solved so far.
+
         <br>
         <div class="alert alert-warning" role="alert">
         <U>Important:</U> Once you are in the <strong><em>switch mode</em></strong> you cannot go back to the letter counting task!
         </div>
 
     <p>
-        Below this panel you will find an annotated image with the positioning of the "switch" button. Make sure you have familiarized
+        Below this panel you will find an annotated image with the positioning of the "switch" button, the timer and the sequence counter. Make sure you have familiarized
         yourself with the screen before proceeding.
     </p>
     </p>
 </div>
 
     <div class="panel panel-primary">
-    <div class="panel-heading">Example Screen</div>
+  <!-- Default panel contents -->
+<div class="panel-heading">Earnings Example</div>
+  <div class="panel-body">
+    Here you can see an illustrative example of possible earnings:
+  </div>
+<!-- Begin Table -->
+<table class="table">
+  <thead>
+  <tr>
+    <th class="tg-s6z2"></th>
+    <th class="tg-s6z2">Time (sec)</th>
+    <th class="tg-s6z2">Activity</th>
+    <th class="tg-s6z2">Earnings (Token)</th>
+  </thead>
+  </tr>
+  <tr>
+    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">120</td>
+    <td class="tg-s6z2">Letter Count</td>
+    <td class="tg-s6z2">24</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">120</td>
+    <td class="tg-s6z2">"Switch" Mode</td>
+    <td class="tg-s6z2">12</td>
+  </tr>
+  <tfoot>
+  <tr>
+    <td class="tg-s6z2"><strong>Total</strong></td>
+    <td class="tg-s6z2">240</td>
+    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">36</td>
+  </tr>
+  </tfoot>
+</table>
+    </div>
+
+    <div class="instructions well well-lg">
+    The following is an example of the layout of the screen for counting letters.
+    </div>
+    <div class="panel panel-primary">
+    <div class="panel-heading">Task Screen</div>
     <img src="{% static 'tullock_income_intro/task_inst_switch.png' %}" class="img-thumbnail"
          alt="Responsive image">
     </div>
     <br>
     <br>
+    <div class="instructions well well-lg">
+    To ensure that you do not enter the "switch" mode by mistake you will be asked for confirmation. An example screen is shown below.
+    </div>
+    <div class="panel panel-primary">
+    <div class="panel-heading">"Switch" Confirmation Screen</div>
+    <img src="{% static 'tullock_income_intro/6-3-Trial-Round-Switch-Conf.png' %}" class="img-thumbnail"
+         alt="Responsive image">
+    </div>
 
-    <p>
-        Are you ready to proceed?
-    </p>
+    <br>
+    <br>
+    <h4>Are you ready to proceed?</h4>
     {% next_button %}
 
 {% endblock %}

@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block title %}
-    Trial Round {{ subsession.round_number }}
+    Letter Counting Task Round {{ subsession.round_number }}
 {% endblock %}
 
 {% block content %}
@@ -18,12 +18,15 @@
 <span id="min">00</span>:<span id="sec">00</span>
 </span>
 
+    <br>
+    <span class="label label-success" id="number_strings">00</span>
+
 <div id="string">
 </div>
 
 <br>
 
-<input type="text" id="player_guess" size="4" autofocus>
+<input type="number" id="player_guess" size="4" autofocus>
 </input> &nbsp;
 
 <br>
@@ -59,9 +62,24 @@
 
 </div>
 
-<div id="Switch_mode" class="Switch_mode">
-    You are now in the switch mode.
+<div id="Switch_mode" class="Switch_mode panel panel-primary">
+    <div class="panel-heading">
+        You are now in the "Switch" mode.
+    </div>
+    <div class="panel-body">
+        <p>
+        You solved <span class="label label-success" id="number_strings">20</span> sequences.
+        </p>
+
+     Your earnings from "Switch" mode are:
+        <br>
+    <h3>
+        <span class="label label-primary"><span id="token_counter">00</span> Token
+        </span>
+    </h3>
+    </div>
 </div>
+
 
 <input type="hidden" name="switch1" id="id_switch1"/>
 
@@ -145,6 +163,9 @@ me.makeguess = function(x) {
         var string = document.getElementById("string");
         string.innerHTML = string_list[x];
 
+        var number_strings = x;
+        document.getElementById("number_strings").innerHTML = number_strings;
+
         document.getElementById("id_production_strings").setAttribute("value",me.index);
     }
 }
@@ -175,11 +196,11 @@ function keyPressTextField(e) {
 
 document.getElementById("Switch_button").addEventListener("click", function() {
     event.preventDefault();
-    var el = document.createElement("input")
+    var el = document.createElement("input");
     el.type = "hidden";
-    el.name = "additionaltime1"
+    el.name = "additionaltime1";
     el.value = me.sec;
-    el.id = el.name
+    el.id = el.name;
     var answers = document.getElementById("id_production_strings");
     answers.appendChild(el);
     var pattern = document.getElementsByClassName("jumbotron")[0];
@@ -188,6 +209,16 @@ document.getElementById("Switch_button").addEventListener("click", function() {
         switchmode[0].classList.remove("hidden");
     var switch1 = 1;
         document.getElementById("id_switch1").setAttribute("value",switch1);
+
+    var tokens = 0;
+    var el = document.getElementById('token_counter');
+
+    function incrementSeconds() {
+    tokens += 0.1;
+    el.innerText = Math.round( tokens * 10 ) / 10;
+    }
+
+    var cancel = setInterval(incrementSeconds, 1000);
 })
 
 window.onload = function(){
