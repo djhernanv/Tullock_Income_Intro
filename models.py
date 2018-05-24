@@ -78,7 +78,7 @@ class Player(BasePlayer):
     solution_3 = models.PositiveIntegerField()
 
     # Number of Tasks Solved
-    output0 = models.FloatField(default=0)
+    output_trial = models.FloatField(default=0)
     production_strings = models.FloatField(default=0)
 
     # available income after solving RET

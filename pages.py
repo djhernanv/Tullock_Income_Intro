@@ -41,7 +41,7 @@ class Round0(Page):
                    't003',
                    't004',
                    't005',
-                   'output0'
+                   'output_trial'
                    ]
 
     def is_displayed(self):

@@ -11,12 +11,12 @@
 
 {% block content %}
 
-<div id="done_text">
+<div class="done_text" id="done_text">
 </div>
 
 <div class="jumbotron">
 
-<span class="label label-primary">
+<span class="badge badge-primary">
 <span id="min">00</span>:<span id="sec">00</span>
 </span>
 
@@ -31,15 +31,18 @@
 
 <br>
 
-<input type="hidden" name="output0" id="id_output0"/>
+<input type="hidden" name="output_trial" id="id_output_trial"/>
+
+
+
 
 </div>
 <div class="next_container">
-    <input class="btn btn-primary btn-large btn-primary next-button" type="submit" value="Continue">
+    <input class="d-none btn btn-primary btn-large btn-primary" id="next-button" type="submit" value="Continue">
 </div>
 
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript" src="{% static 'project2cont/js/Round0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'tullock_income_intro/js/Round0.js' %}"></script>
 {% endblock %}

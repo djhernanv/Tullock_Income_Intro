@@ -6,8 +6,9 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="instructions well well-lg">
+<hr>
+<div class="card bg-light instructions">
+    <div class="card-body">
      <p>
         Thank you for taking part in this experiment.</p>
     <p>
@@ -24,7 +25,10 @@
     <p>
         To make you familiar with the task you are going to be asked to perform, the next pages will show you the instructions
         and a trial round.</p>
+    </div>
 </div>
+
+    <br>
 
     {% next_button %}
 {% endblock %}
