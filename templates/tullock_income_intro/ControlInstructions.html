@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 {% load staticfiles %}
 
 
@@ -37,13 +37,13 @@ To make sure that you have understood the instructions, please answer the questi
     <td class="tg-s6z2">24</td>
     <td class="tg-s6z2">200</td>
     <td class="tg-s6z2">Letter Count</td>
-    <td class="tg-s6z2">{% formfield player.solution_1 with label="" %}</td>
+    <td class="tg-s6z2">{% formfield player.solution_1 label="" %}</td>
   </tr>
   <tr>
     <td class="tg-s6z2"></td>
     <td class="tg-s6z2">40</td>
     <td class="tg-s6z2">"Switch" Mode</td>
-    <td class="tg-s6z2">{% formfield player.solution_2 with label="" %}</td>
+    <td class="tg-s6z2">{% formfield player.solution_2 label="" %}</td>
   </tr>
   <tfoot>
   <tr>

@@ -35,7 +35,7 @@ class TaskInstructions(Page):
 
 
 class Round0(Page):
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['t001',
                    't002',
                    't003',
@@ -79,7 +79,7 @@ class ControlInstructions(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['solution_1',
                    'solution_2',
                    'solution_3',
@@ -102,7 +102,7 @@ class StartSubmit(Page):
 
 class RET(Page):
     timeout_seconds = Constants.t
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['t101',
                    't102',
                    't103',
