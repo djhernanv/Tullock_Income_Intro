@@ -163,6 +163,7 @@ class Waiting(WaitPage):
 
 
 class Feedback(Page):
+
     def vars_for_template(self):
         if self.round_number > 1:
             return {'production_strings_last': self.player.in_round(self.round_number - 1).production_strings,

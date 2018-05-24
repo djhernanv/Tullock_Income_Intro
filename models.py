@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
-    t = 240  # Total Time in seconds available for both solving and staying in switch
+    t = 60  # Total Time in seconds available for both solving and staying in switch
     # make sure to change images in instructions to be consistent with max time
     # also instructions tables
     time_in_minutes = t/60
@@ -75,7 +75,7 @@ class Player(BasePlayer):
     solution_1 = models.PositiveIntegerField()
     solution_2 = models.PositiveIntegerField()
 
-    solution_3 = models.IntegerField()
+    solution_3 = models.PositiveIntegerField()
 
     # Number of Tasks Solved
     output0 = models.FloatField(default=0)
