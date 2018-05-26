@@ -83,12 +83,15 @@ class ControlInstructions(Page):
     form_fields = ['solution_1',
                    'solution_2',
                    'solution_3',
+                   'solution_4',
+                   'solution_5',
                    ]
 
-    def incorrect_answer(self, values):
-        print('value is', values)
-        if values["solution_1"] != 24 or values["solution_2"] != 4 or values["solution_3"] != 17:
-            return 'Check your answer and try again'
+    def error_message(self, values):
+        print('values is', values)
+        if values["solution_1"] != 24 or values["solution_2"] != 4 \
+                or values["solution_3"] != 17 or values["solution_4"] != 11 or values["solution_5"] != 3:
+            return 'Check your answers and try again'
 
 
 class StartSubmit(Page):

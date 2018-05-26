@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
-    t = 60  # Total Time in seconds available for both solving and staying in switch
+    t = 480  # Total Time in seconds available for both solving and staying in switch
     # make sure to change images in instructions to be consistent with max time
     # also instructions tables
     time_in_minutes = t/60
@@ -32,7 +32,7 @@ class Constants(BaseConstants):
     tokensper_string = 1
     tokensper_string_high = 2
     eurosper_token = c(0.10)
-    secondsper_token = 10
+    secondsper_token = 10  # if changing this correct SwitchInstructions
 
     increase_per_string = 4
 
@@ -51,7 +51,8 @@ class Group(BaseGroup):
     # determine total output
 
     def set_total_production(self):
-        total_production = sum(p.production_strings for p in self.get_players())  # retrieves a list of all individual productions
+        total_production = sum(p.production_strings for p in self.get_players())
+        # retrieves a list of all individual productions
         # and sums them up
         self.total_production = total_production
 
@@ -72,10 +73,12 @@ class Player(BasePlayer):
         return string.ascii_uppercase[self.id_in_group - 1]
 
     # Control Instructions Variables
-    solution_1 = models.PositiveIntegerField()
-    solution_2 = models.PositiveIntegerField()
+    solution_1 = models.PositiveIntegerField(default=0)
+    solution_2 = models.PositiveIntegerField(default=0)
 
     solution_3 = models.PositiveIntegerField()
+    solution_4 = models.PositiveIntegerField()
+    solution_5 = models.PositiveIntegerField()
 
     # Number of Tasks Solved
     output_trial = models.FloatField(default=0)

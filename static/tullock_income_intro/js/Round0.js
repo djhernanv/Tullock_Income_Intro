@@ -81,7 +81,7 @@ me.makeguess = function(x) {
         next.classList.remove("d-none");
         // displays text after solving all trial sequences
         var donetextvar = document.getElementById("done_text");
-        donetextvar.innerHTML = "<p>You finished the trial round. Please click <i>Continue</i>.</p>";
+        donetextvar.innerHTML = "<hr><p>You finished the trial round. Please click <i>Continue</i>.</p>";
     } else {
         me.index = x;
 
