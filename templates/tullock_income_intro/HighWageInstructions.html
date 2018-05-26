@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 {% load humanize %}
 
 {% block styles %}
@@ -11,8 +11,9 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="instructions well well-lg">
+<hr>
+<div class="card bg-light instructions">
+    <div class="card-body">
     <p>
       The following task is similar to the last one, only that <strong> you will earn {{ Constants.tokensper_string_high|apnumber }}
         Tokens</strong> (instead of {{ Constants.tokensper_string|apnumber }}) per correctly solved sequence.
@@ -27,6 +28,7 @@
     <p>
         Are you ready to start?
     </p>
+    </div>
 </div>
 
     {% next_button %}

@@ -1,21 +1,23 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 
 {% block title %}
     Task Instructions
+
 {% endblock %}
 
 
 {% block content %}
-
-<div class="instructions well well-lg">
+    <hr>
+<div class="card bg-light instructions">
+    <div class="card-body">
     <p>
         During the experiment, you will be asked to count letters. You have to count <strong>how many</strong> times the letter “<strong>a</strong>“
         appears in a sequence of characters.
     </p>
     <p>
         On the next screen you will have the opportunity to try the task five times. You will face sequences of various lengths to get a good impression of the task.
-        To submit an answer, hit the <span class="label label-info"> ⏎ Enter</span> key.
+        To submit an answer, hit the <span class="badge badge-info"> ⏎ Enter</span> key.
         If your answer is correct, the next sequence is displayed. Otherwise, the same sequence is displayed again and you can submit another answer.
         The timer in blue above the input field will tell you how long you take for each sequence.
     </p>
@@ -26,11 +28,14 @@
     <p>
         Tasks solved in the next screen will not count toward your payment.
     </p>
+    </div>
 </div>
-    <div class="panel panel-primary">
-    <div class="panel-heading">Example Screen</div>
-    <img src="{% static 'tullock_income_intro/task_inst_no-switch.png' %}" class="img-thumbnail"
-         alt="Responsive image">
+<hr>
+    <div class="card text-white bg-info mb-3">
+        <div class="card-header">
+        <h5>Example Screen</h5>
+        </div>
+    <img src="{% static 'tullock_income_intro/task_inst_no-switch.png' %}" class="card-img-top" alt="Card image cap">
     </div>
     <br>
     <br>

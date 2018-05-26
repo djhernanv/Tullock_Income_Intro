@@ -35,13 +35,13 @@ class TaskInstructions(Page):
 
 
 class Round0(Page):
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['t001',
                    't002',
                    't003',
                    't004',
                    't005',
-                   'output0'
+                   'output_trial'
                    ]
 
     def is_displayed(self):
@@ -79,16 +79,19 @@ class ControlInstructions(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['solution_1',
                    'solution_2',
                    'solution_3',
+                   'solution_4',
+                   'solution_5',
                    ]
 
-    def incorrect_answer(self, values):
-        print('value is', values)
-        if values["solution_1"] != 24 or values["solution_2"] != 4 or values["solution_3"] != 17:
-            return 'Check your answer and try again'
+    def error_message(self, values):
+        print('values is', values)
+        if values["solution_1"] != 24 or values["solution_2"] != 4 \
+                or values["solution_3"] != 17 or values["solution_4"] != 11 or values["solution_5"] != 3:
+            return 'Check your answers and try again'
 
 
 class StartSubmit(Page):
@@ -102,7 +105,7 @@ class StartSubmit(Page):
 
 class RET(Page):
     timeout_seconds = Constants.t
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['t101',
                    't102',
                    't103',
@@ -163,6 +166,7 @@ class Waiting(WaitPage):
 
 
 class Feedback(Page):
+
     def vars_for_template(self):
         if self.round_number > 1:
             return {'production_strings_last': self.player.in_round(self.round_number - 1).production_strings,

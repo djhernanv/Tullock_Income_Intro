@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load staticfiles otree_tags %}
+{% load staticfiles otree %}
 {% load humanize %}
 
 {% block title %}
@@ -7,8 +7,9 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="instructions well well-lg">
+<hr>
+<div class="card bg-light instructions">
+    <div class="card-body">
     <p>
         In the following rounds you can earn money.
         <strong>For each sequence in which you count the correct number of "a"s </strong>
@@ -16,7 +17,7 @@
         At the end of this session, one Token will be converted into <strong>{{ Constants.eurosper_token }} Euro</strong>.
     </p>
     <p>
-        You will start solving short sequences. After each sequence you solve, the <strong>length will increase
+        You will start solving short sequences. After each sequence you solve, the <strong>length of the sequences will increase
         by {{ Constants.increase_per_string|apnumber }} characters</strong>. The sequences presented and their order are identical for all participants.
         Also, all participants have to count the same letter ( <strong>a</strong> ) such that <strong>everybody faces the same difficulty in solving the task</strong>.
     </p>
@@ -27,7 +28,7 @@
         at a certain point you will earn more from staying in the <em>switch mode</em>
         than from solving tasks. Think therefore about when it is best for you change to the <strong><em>switch mode.</em></strong>
 
-        Each round lasts {{ Constants.time_in_minutes|apnumber }} minutes in which you can either solve tasks or spend time in
+        <strong> Each round lasts {{ Constants.time_in_minutes|floatformat:0 }} minutes (240 seconds)</strong> in which you can either solve tasks or spend time in
         "switch" mode. A timer in yellow above the sequence will show you the time left in the current round and a green counter
         will tell you how many sequences you have solved so far.
 
@@ -41,34 +42,39 @@
         yourself with the screen before proceeding.
     </p>
     </p>
+    </div>
 </div>
 
-    <div class="panel panel-primary">
-  <!-- Default panel contents -->
-<div class="panel-heading">Earnings Example</div>
-  <div class="panel-body">
+    <div class="card">
+       <div class="card-header text-white bg-primary mb-3">
+        <h5>Earnings Example</h5>
+        </div>
+  <div class="card-body">
     Here you can see an illustrative example of possible earnings:
   </div>
 <!-- Begin Table -->
 <table class="table">
   <thead>
   <tr>
-    <th class="tg-s6z2"></th>
+    <th class="tg-s6z2">Quantity (Sequences)</th>
     <th class="tg-s6z2">Time (sec)</th>
     <th class="tg-s6z2">Activity</th>
+    <th class="tg-s6z2">Payment Key</th>
     <th class="tg-s6z2">Earnings (Token)</th>
   </thead>
   </tr>
   <tr>
-    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">24</td>
     <td class="tg-s6z2">120</td>
     <td class="tg-s6z2">Letter Count</td>
+    <td class="tg-s6z2">For Solved Sequences</td>
     <td class="tg-s6z2">24</td>
   </tr>
   <tr>
-    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">--</td>
     <td class="tg-s6z2">120</td>
     <td class="tg-s6z2">"Switch" Mode</td>
+    <td class="tg-s6z2">For Spent Seconds</td>
     <td class="tg-s6z2">12</td>
   </tr>
   <tfoot>
@@ -76,27 +82,31 @@
     <td class="tg-s6z2"><strong>Total</strong></td>
     <td class="tg-s6z2">240</td>
     <td class="tg-s6z2"></td>
+    <td class="tg-s6z2"></td>
     <td class="tg-s6z2">36</td>
   </tr>
   </tfoot>
 </table>
     </div>
-
-    <div class="instructions well well-lg">
+<br>
+<div class="card bg-light instructions">
+    <div class="card-body">
     The following is an example of the layout of the screen for counting letters.
     </div>
-    <div class="panel panel-primary">
-    <div class="panel-heading">Task Screen</div>
+</div>
+    <div class="card">
+    <div class="card-header text-white bg-primary mb-3">Task Screen</div>
     <img src="{% static 'tullock_income_intro/task_inst_switch.png' %}" class="img-thumbnail"
          alt="Responsive image">
     </div>
     <br>
-    <br>
-    <div class="instructions well well-lg">
+<div class="card bg-light instructions">
+    <div class="card-body">
     To ensure that you do not enter the "switch" mode by mistake you will be asked for confirmation. An example screen is shown below.
     </div>
-    <div class="panel panel-primary">
-    <div class="panel-heading">"Switch" Confirmation Screen</div>
+    </div>
+    <div class="card">
+    <div class="card-header text-white bg-primary mb-3">"Switch" confirmation screen</div>
     <img src="{% static 'tullock_income_intro/6-3-Trial-Round-Switch-Conf.png' %}" class="img-thumbnail"
          alt="Responsive image">
     </div>
@@ -107,3 +117,4 @@
     {% next_button %}
 
 {% endblock %}
+

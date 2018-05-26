@@ -1,7 +1,7 @@
-var sequences_0 = ["wgaaojlbenndnlfajaqqyv","wyafzlgacvagidwjzzayaharrwgxaxnhelvaoxizrlfsgafcoalxybaamnbfgxcptwopadajajnagkazzagzalamuj",
+var sequences_trial = ["wgaaojlbenndnlfajaqqyv","wyafzlgacvagidwjzzayaharrwgxaxnhelvaoxizrlfsgafcoalxybaamnbfgxcptwopadajajnagkazzagzalamuj",
     "hvkpjipslkuo","yaaqxjjhazaptaknryqkimguquqnerodxlqajizaybbadjvkarhc","awgfxamulbeayoaafvyieabkwldpuiadrk"];
-var solutions_0 = [4,20,0,9,7];
-var length_0 = solutions_0.length;
+var solutions_trial = [4,20,0,9,7];
+var length_trial = solutions_trial.length;
 
 var me = me || {};
 me.index = null;
@@ -59,10 +59,10 @@ me.check = function(x) {
     el.value = me.sec;
     el.id = el.name
 
-    var answers = document.getElementById("id_output0");
+    var answers = document.getElementById("id_output_trial");
     answers.appendChild(el);
 
-    if (x === solutions_0[me.index]) {
+    if (x === solutions_trial[me.index]) {
         me.makeguess(me.index+1);
         me.resettime();
     } else {
@@ -72,24 +72,23 @@ me.check = function(x) {
 
 // This function loads and displays the next string
 me.makeguess = function(x) {
-    if (x >= length_0) {
+    if (x >= length_trial) {
         me.index = x;
-        document.getElementById("id_output0").setAttribute("value",me.index);
-
+        document.getElementById("id_output_trial").setAttribute("value",me.index);
         var pattern = document.getElementsByClassName("jumbotron")[0];
-        pattern.classList.add("hidden");
-        var next = document.getElementsByClassName("next-button");
-        next[0].classList.remove("hidden");
+        pattern.classList.add("d-none");
+        var next = document.getElementById("next-button");
+        next.classList.remove("d-none");
         // displays text after solving all trial sequences
         var donetextvar = document.getElementById("done_text");
-        donetextvar.innerHTML = "<p>You finished the trial round. Please click <i>Continue</i>.</p>";
+        donetextvar.innerHTML = "<hr><p>You finished the trial round. Please click <i>Continue</i>.</p>";
     } else {
         me.index = x;
 
         var string = document.getElementById("string");
-        string.innerHTML = sequences_0[x];
+        string.innerHTML = sequences_trial[x];
 
-        document.getElementById("id_output0").setAttribute("value",me.index);
+        document.getElementById("id_output_trial").setAttribute("value",me.index);
     }
 }
 
@@ -130,5 +129,5 @@ window.onload = function(){
     document.addEventListener("keyup", keyUpTextField, false);
     document.addEventListener("keypress", keyPressTextField, false);
     var next = document.getElementsByClassName("next-button");
-    next[0].classList.add("hidden");
+    next[0].classList.add("d-none");
 }

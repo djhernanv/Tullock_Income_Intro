@@ -1,4 +1,4 @@
-{% load otree_tags staticfiles %}
+{% load otree staticfiles %}
 
 <div class="instructions well well-lg">
 
@@ -11,8 +11,8 @@
     </p>
     <p>
         {% if subsession.round_number > 1 %}
-            Per correctly solved sequence you will get {{ Constants.tokensper_string }} or {{ Constants.tokensper_string_high }}
-            Token depending on whether or not you won the prize in the last round.
+            Per correctly solved sequence you will get {{ Constants.tokensper_string_high }}
+            Token.
             {% else %}
             Per correctly solved sequence you will get {{ Constants.tokensper_string }} Token.
         {% endif %}
@@ -20,7 +20,7 @@
         you will get 1 token per each {{ Constants.secondsper_token }} seconds in "switch".
     </p>
     <p>
-        For your convenience, these instructions will remain available during all screens of this task.
+        <strong>This round lasts {{ Constants.time_in_minutes|floatformat:0 }} Minutes.</strong>
     </p>
 
 </div>
