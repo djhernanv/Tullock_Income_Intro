@@ -1,0 +1,352 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load staticfiles %}
+
+
+{% block title %}
+    Control Questions High Wage
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static "tullock_income_ret/css/Belief.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<hr>
+    <div class="card bg-light instructions">
+    <div class="card-body">
+        To make sure that you have understood the instructions, please answer the questions below according to the information given in the last screen.
+        At the bottom of this page you will find a summary of the instructions.
+    </div>
+    </div>
+
+<div class="card">
+       <div class="card-header text-white bg-primary mb-3">
+        <h5>Earnings Check</h5>
+        </div>
+  <div class="card-body">
+
+      <table class="table">
+  <thead>
+  <tr>
+    <th class="tg-s6z2">Amount (Sequences)</th>
+    <th class="tg-s6z2">Time (sec)</th>
+    <th class="tg-s6z2">Activity</th>
+    <th class="tg-s6z2">Earnings (Token)</th>
+  </thead>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">24</td>
+    <td class="tg-s6z2">140</td>
+    <td class="tg-s6z2">Letter Count</td>
+    <td class="tg-s6z2">
+        <div class="form-group">
+        <input type="number" class="form-control" name="solution_6" id="solution_6" oninput="doMath()" value="0">
+        </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">40</td>
+    <td class="tg-s6z2">"Switch" Mode</td>
+    <td class="tg-s6z2">
+        <div class="form-group">
+        <input type="number" class="form-control" name="solution_7" id="solution_7" oninput="doMath()" value="0">
+        </div>
+    </td>
+  </tr>
+  <tfoot>
+  <tr>
+    <td class="tg-s6z2"><strong>Total</strong></td>
+    <td class="tg-s6z2">180</td>
+    <td class="tg-s6z2"></td>
+    <td class="tg-s6z2">
+        <div id="sum_sols">
+            0
+        </div>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+
+</div>
+
+</div>
+
+    <br>
+
+<div class="card">
+       <div class="card-header text-white bg-primary mb-3">
+        <h5>"Switch" Check</h5>
+        </div>
+  <div class="card-body">
+        <p>The next three lists give you an illustrative example of how long three fictional participants take to solve each task.
+        Please select the task after which each participant should have changed to "switch" if he/she was interested in maximizing
+        his/her <strong>total</strong> income in the present round:
+        </p>
+      {{ form.solution_8.errors }}
+      {{ form.solution_10.errors }}
+      {{ form.solution_9.errors }}
+        <br>
+        <hr>
+    <!-- Table 1 -->
+        <table>
+          <tr>
+            <th>Time Spent (sec):</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            <td align="center">6</td>
+            <td align="center">8</td>
+            <td align="center">7</td>
+            <td align="center">6</td>
+            <td align="center">10</td>
+            <td align="center">10</td>
+            <td align="center">14</td>
+            <td align="center">15</td>
+            <td align="center">19</td>
+            <td align="center">20</td>
+            <td align="center">24</td>
+          </tr>
+          <tr>
+            <th>Sequence No.:</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" id="solution_8" name="solution_8" autocomplete="off" value="10"> 10</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" id="solution_8" name="solution_8" autocomplete="off" value="11"> 11</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="12"> 12</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="13"> 13</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="14"> 14</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="15"> 15</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="16"> 16</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="17"> 17</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="18"> 18</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="19"> 19</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_8" autocomplete="off" value="20"> 20</label>
+
+              </td>
+          </tr>
+        </table>
+
+      <br>
+        <hr>
+      <!-- Table 2 -->
+        <table>
+          <tr>
+            <th>Time Spent (sec):</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            <td align="center">5</td>
+            <td align="center">7</td>
+            <td align="center">9</td>
+            <td align="center">10</td>
+            <td align="center">12</td>
+            <td align="center">11</td>
+            <td align="center">18</td>
+            <td align="center">20</td>
+            <td align="center">22</td>
+            <td align="center">24</td>
+            <td align="center">24</td>
+          </tr>
+          <tr>
+            <th>Sequence No.:</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="5"> 5</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="6"> 6</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="7"> 7</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="8"> 8</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="9"> 9</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="10"> 10</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="11"> 11</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="12"> 12</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="13"> 13</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="14"> 14</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_9" autocomplete="off" value="15"> 15</label>
+
+              </td>
+          </tr>
+        </table>
+      <br>
+        <hr>
+      <!-- Table 3 -->
+        <table>
+          <tr>
+            <th>Time Spent (sec):</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            <td align="center">5</td>
+            <td align="center">9</td>
+            <td align="center">10</td>
+            <td align="center">12</td>
+            <td align="center">14</td>
+            <td align="center">14</td>
+            <td align="center">13</td>
+            <td align="center">19</td>
+            <td align="center">20</td>
+            <td align="center">22</td>
+            <td align="center">21</td>
+          </tr>
+          <tr>
+            <th>Sequence No.:</th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="1"> 1</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="2"> 2</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="3"> 3</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="4"> 4</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="5"> 5</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="6"> 6</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="7"> 7</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="8"> 8</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="9"> 9</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="10"> 10</label>
+
+              </td>
+              <td>
+                  <label class="btn btn-secondary active btn-sm"><input type="radio" name="solution_10" autocomplete="off" value="11"> 11</label>
+
+              </td>
+          </tr>
+        </table>
+
+  </div>
+
+   <br>
+   <br>
+</div>
+
+
+
+    <br>
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>Instructions
+    </h3>
+    <hr>
+
+    <p>
+        Per correctly solved sequence you will get {{ Constants.tokensper_string_high }} Token.
+    <br>
+        In the <strong> switch mode </strong> you will get 1 Token per each {{ Constants.secondsper_token }} seconds in "switch".
+    </p>
+    </div>
+
+</div>
+
+    {% next_button %}
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script type="text/javascript">
+    function doMath()
+    {
+        // Capture the entered values of two input boxes
+        var solution_6 = document.getElementById('solution_6').value;
+        var solution_7 = document.getElementById('solution_7').value;
+
+        // Add them together and display
+        var sum_sols = (parseInt(solution_6) || 0) + (parseInt(solution_7) || 0);
+        document.getElementById("sum_sols").innerHTML = sum_sols;
+    }
+    </script>
+
+{% endblock %}

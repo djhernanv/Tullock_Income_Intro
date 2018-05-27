@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
-    t = 480  # Total Time in seconds available for both solving and staying in switch
+    t = 180  # Total Time in seconds available for both solving and staying in switch
     # make sure to change images in instructions to be consistent with max time
     # also instructions tables
     time_in_minutes = t/60
@@ -34,7 +34,7 @@ class Constants(BaseConstants):
     eurosper_token = c(0.10)
     secondsper_token = 10  # if changing this correct SwitchInstructions
 
-    increase_per_string = 4
+    increase_per_string = 2
 
     # this is a summarized instruction to be shown under each sequence as a reminder:
     instructions_summarized = 'tullock_income_intro/InstructionsSum.html'
@@ -79,6 +79,14 @@ class Player(BasePlayer):
     solution_3 = models.PositiveIntegerField()
     solution_4 = models.PositiveIntegerField()
     solution_5 = models.PositiveIntegerField()
+
+    # Control Instructions High
+    solution_6 = models.PositiveIntegerField(default=0)
+    solution_7 = models.PositiveIntegerField(default=0)
+
+    solution_8 = models.PositiveIntegerField()
+    solution_9 = models.PositiveIntegerField()
+    solution_10 = models.PositiveIntegerField()
 
     # Number of Tasks Solved
     output_trial = models.FloatField(default=0)

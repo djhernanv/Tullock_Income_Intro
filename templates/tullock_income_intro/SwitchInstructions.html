@@ -11,7 +11,7 @@
 <div class="card bg-light instructions">
     <div class="card-body">
     <p>
-        In the following rounds you can earn money.
+        In the following rounds of counting letters you can earn money.
         <strong>For each sequence in which you count the correct number of "a"s </strong>
         you will receive <strong>{{ Constants.tokensper_string }} Token</strong> (Tk). That is your wage.
         At the end of this session, one Token will be converted into <strong>{{ Constants.eurosper_token }} Euro</strong>.
@@ -28,7 +28,7 @@
         at a certain point you will earn more from staying in the <em>switch mode</em>
         than from solving tasks. Think therefore about when it is best for you change to the <strong><em>switch mode.</em></strong>
 
-        <strong> Each round lasts {{ Constants.time_in_minutes|floatformat:0 }} minutes (240 seconds)</strong> in which you can either solve tasks or spend time in
+        <strong> Each round lasts {{ Constants.time_in_minutes|floatformat:0 }} minutes ({{ Constants.t }} seconds)</strong> in which you can either solve tasks or spend time in
         "switch" mode. A timer in yellow above the sequence will show you the time left in the current round and a green counter
         will tell you how many sequences you have solved so far.
 
@@ -65,25 +65,25 @@
   </tr>
   <tr>
     <td class="tg-s6z2">24</td>
-    <td class="tg-s6z2">120</td>
+    <td class="tg-s6z2">90</td>
     <td class="tg-s6z2">Letter Count</td>
     <td class="tg-s6z2">For Solved Sequences</td>
     <td class="tg-s6z2">24</td>
   </tr>
   <tr>
     <td class="tg-s6z2">--</td>
-    <td class="tg-s6z2">120</td>
+    <td class="tg-s6z2">90</td>
     <td class="tg-s6z2">"Switch" Mode</td>
     <td class="tg-s6z2">For Spent Seconds</td>
-    <td class="tg-s6z2">12</td>
+    <td class="tg-s6z2">9</td>
   </tr>
   <tfoot>
   <tr>
     <td class="tg-s6z2"><strong>Total</strong></td>
-    <td class="tg-s6z2">240</td>
+    <td class="tg-s6z2">{{ Constants.t }}</td>
     <td class="tg-s6z2"></td>
     <td class="tg-s6z2"></td>
-    <td class="tg-s6z2">36</td>
+    <td class="tg-s6z2">33</td>
   </tr>
   </tfoot>
 </table>

@@ -89,7 +89,7 @@ class ControlInstructions(Page):
 
     def error_message(self, values):
         print('values is', values)
-        if values["solution_1"] != 24 or values["solution_2"] != 4 \
+        if values["solution_1"] != 15 or values["solution_2"] != 6 \
                 or values["solution_3"] != 17 or values["solution_4"] != 11 or values["solution_5"] != 3:
             return 'Check your answers and try again'
 
@@ -181,6 +181,25 @@ class HighWageInstructions(Page):
         return self.round_number == 1
 
 
+class ControlInstructionsHigh(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+    form_model = 'player'
+    form_fields = ['solution_6',
+                   'solution_7',
+                   'solution_8',
+                   'solution_9',
+                   'solution_10',
+                   ]
+
+    def error_message(self, values):
+        print('values is', values)
+        if values["solution_6"] != 48 or values["solution_7"] != 4 \
+                or values["solution_8"] != 19 or values["solution_9"] != 12 or values["solution_10"] != 9:
+            return 'Check your answers and try again'
+
+
 page_sequence = [
     Welcome,
     Introduction,
@@ -194,4 +213,5 @@ page_sequence = [
     Waiting,  # calculates incomes
     Feedback,
     HighWageInstructions,
+    ControlInstructionsHigh,
 ]
