@@ -15,7 +15,6 @@ me.makeguess = null;
 
 // This function adds an additional "0" left to single digit numbers for formatting reasons, not for functionality
 // is called repeatedly from within settime and resettime functions
-// seems harmless, but is not fundamental
 me.pad = function(val) {
     return val > 9 ? val : "0" + val;
 };

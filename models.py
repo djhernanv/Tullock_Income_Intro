@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
-    t = 180  # Total Time in seconds available for both solving and staying in switch
+    t = 60  # Total Time in seconds available for both solving and staying in switch
     # make sure to change images in instructions to be consistent with max time
     # also instructions tables
     time_in_minutes = t/60
@@ -48,7 +48,7 @@ class Group(BaseGroup):
 
     total_production = models.IntegerField(initial=0)  # define group variable
 
-    # determine total output
+    # determine total production:
 
     def set_total_production(self):
         total_production = sum(p.production_strings for p in self.get_players())
@@ -65,6 +65,9 @@ class Group(BaseGroup):
             else:
                 p.income_strings = p.production_strings * Constants.tokensper_string
                 p.income = p.income_strings + p.income_in_switch
+        for p in self.get_players():
+            p.participant.vars[f'income_{self.round_number}'] = p.income
+            print('vars is', p.participant.vars)
 
 
 class Player(BasePlayer):
