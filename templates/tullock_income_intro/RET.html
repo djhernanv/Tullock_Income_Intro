@@ -4,6 +4,7 @@
 
 {% block styles %}
     <link href="{% static "tullock_income_intro/css/Round.css" %}" rel="stylesheet">
+    <link href="{% static "tullock_income_intro/css/bootstrap-tour-standalone.min.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -37,7 +38,7 @@
 
 
 <!-- "Switch" Confirmation -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<button type="button" id="switch_modal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   SWITCH
 </button>
 
@@ -52,11 +53,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure you want to go into "switch" mode?</p>
+        <p>Are you sure you want to go into "switch" mode? Once you are in "switch" you cannot go back to solving sequences!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="Switch_button" data-dismiss="modal">Switch</button>
+        <button type="button" class="btn btn-danger" id="Switch_button" data-dismiss="modal">Switch</button>
       </div>
     </div>
   </div>
@@ -103,6 +104,13 @@
 {% endblock %}
 
 {% block scripts %}
+
+<script type="text/javascript" src="{% static 'tullock_income_intro/js/bootstrap-tour-standalone.min.js' %}"></script>
+
+    {% if subsession.round_number == 1 %}
+<script type="text/javascript" src="{% static 'tullock_income_intro/js/Tour-RET.js' %}"></script>
+    {% endif %}
+
         <!-- this needs to be in a separate file. -->
 <script>
 

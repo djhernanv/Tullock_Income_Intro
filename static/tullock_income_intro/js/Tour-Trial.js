@@ -15,7 +15,7 @@ $(function () {
 
     var tour = new Tour({
         storage : false,
-        debug: true
+        debug: false
     });
 
     tour.addSteps([
