@@ -163,6 +163,7 @@ class RET(Page):
 class Waiting(WaitPage):
     def after_all_players_arrive(self):
         self.group.set_incomes()
+        self.group.set_payoffs()
 
 
 class Feedback(Page):
