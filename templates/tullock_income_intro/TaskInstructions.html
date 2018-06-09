@@ -9,7 +9,9 @@
 
 {% block content %}
     <hr>
-<div class="card bg-light instructions">
+
+
+<div class="card bg-light instructions" id="step_1">
     <div class="card-body">
     <p>
         During the experiment, you will be asked to count letters. You have to count <strong>how many</strong> times the letter “<strong>a</strong>“
@@ -19,27 +21,22 @@
         On the next screen you will have the opportunity to try the task five times. You will face sequences of various lengths to get a good impression of the task.
         To submit an answer, hit the <span class="badge badge-info"> ⏎ Enter</span> key.
         If your answer is correct, the next sequence is displayed. Otherwise, the same sequence is displayed again and you can submit another answer.
-        The timer in blue above the input field will tell you how long you take for each sequence.
+        The timer in blue above the sequence will tell you how long you take for each sequence.
     </p>
     <p>
-        Below this panel you will find an annotated image with all the elements in the screen relevant to the task.
-        Study them well before proceeding.
+        An annotated tour in the next screen will show you the positioning of all the relevant elements (Timer, Sequence and Input Field) along with a short explanation.
     </p>
     <p>
         Tasks solved in the next screen will not count toward your payment.
     </p>
     </div>
 </div>
-<hr>
-    <div class="card text-white bg-info mb-3">
-        <div class="card-header">
-        <h5>Example Screen</h5>
-        </div>
-    <img src="{% static 'tullock_income_intro/task_inst_no-switch.png' %}" class="card-img-top" alt="Card image cap">
-    </div>
-    <br>
-    <br>
 
     {% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+
 
 {% endblock %}

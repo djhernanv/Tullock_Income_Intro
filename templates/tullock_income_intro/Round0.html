@@ -3,6 +3,7 @@
 
 {% block styles %}
     <link href="{% static "tullock_income_intro/css/Round.css" %}" rel="stylesheet">
+    <link href="{% static "tullock_income_intro/css/bootstrap-tour-standalone.min.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
@@ -10,13 +11,14 @@
 {% endblock %}
 
 {% block content %}
+<hr>
 
 <div class="done_text" id="done_text">
 </div>
 
 <div class="jumbotron">
 
-<span class="badge badge-primary">
+<span class="badge badge-primary" id="step_1">
 <span id="min">00</span>:<span id="sec">00</span>
 </span>
 
@@ -45,4 +47,6 @@
 
 {% block scripts %}
     <script type="text/javascript" src="{% static 'tullock_income_intro/js/Round0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'tullock_income_intro/js/bootstrap-tour-standalone.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'tullock_income_intro/js/Tour-Trial.js' %}"></script>
 {% endblock %}

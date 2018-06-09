@@ -24,17 +24,17 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 2  # first round is with low, second with high wage
 
-    t = 60  # Total Time in seconds available for both solving and staying in switch
+    t = 180  # Total Time in seconds available for both solving and staying in switch
     # make sure to change images in instructions to be consistent with max time
     # also instructions tables
     time_in_minutes = t/60
 
     tokensper_string = 1
     tokensper_string_high = 2
-    eurosper_token = c(0.10)
+    eurosper_token = c(0.1)  # make sure to change it in both models
     secondsper_token = 10  # if changing this correct SwitchInstructions
 
-    increase_per_string = 2
+    increase_per_string = 4
 
     # this is a summarized instruction to be shown under each sequence as a reminder:
     instructions_summarized = 'tullock_income_intro/InstructionsSum.html'
@@ -69,6 +69,12 @@ class Group(BaseGroup):
             p.participant.vars[f'income_{self.round_number}'] = p.income
             print('vars is', p.participant.vars)
 
+    # determine payoffs:
+    def set_payoffs(self):
+        for p in self.get_players():
+            p.net_income = p.income
+            p.payoff = p.net_income * Constants.eurosper_token
+
 
 class Player(BasePlayer):
     # give each player a letter for recognition (Important for Feedback)
@@ -98,6 +104,8 @@ class Player(BasePlayer):
     # available income after solving RET
     income = models.FloatField(default=0)
     income_strings = models.FloatField(default=0)
+
+    net_income = models.PositiveIntegerField(default=0)
 
     # Variable is 1 when entering switch
     switch1 = models.PositiveIntegerField(default=0)
