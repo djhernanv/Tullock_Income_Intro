@@ -171,10 +171,10 @@ class Feedback(Page):
     def vars_for_template(self):
         if self.round_number > 1:
             return {'production_strings_last': self.player.in_round(self.round_number - 1).production_strings,
-                    'income_strings_last': self.player.in_round(self.round_number - 1).income_strings,
+                    'income_strings_last': self.player.in_round(self.round_number - 1).income_strings_gross,
                     'time_in_switch_last': self.player.in_round(self.round_number - 1).time_in_switch,
                     'income_in_switch_last': self.player.in_round(self.round_number - 1).income_in_switch,
-                    'income_last': self.player.in_round(self.round_number - 1).income}
+                    'income_last': self.player.in_round(self.round_number - 1).net_income}
 
 
 class HighWageInstructions(Page):

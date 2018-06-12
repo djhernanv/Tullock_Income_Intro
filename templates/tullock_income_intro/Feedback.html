@@ -17,9 +17,9 @@
       {% endif %}
       :</div>
   <div class="card-body">
-    You solved {{ player.production_strings|floatformat:0 }} sequences which earns you <strong>{{ player.income_strings|c|floatformat:0 }}</strong> Tokens.<br>
+    You solved {{ player.production_strings|floatformat:0 }} sequences which earns you <strong>{{ player.income_strings_gross|c|floatformat:0 }}</strong> Tokens.<br>
     You spent {{player.time_in_switch}} seconds in the <em>switch mode</em> which earns you <strong>{{player.income_in_switch|c|floatformat:1}}</strong> Tokens.<br><br>
-    Your total earnings in this round are therefore <strong>{{player.income|c|floatformat:1}}</strong> Tokens. <br>
+    Your total earnings in this round are therefore <strong>{{player.net_income|c|floatformat:1}}</strong> Tokens. <br>
   </div>
 </div>
 

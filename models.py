@@ -31,7 +31,7 @@ class Constants(BaseConstants):
 
     tokensper_string = 1
     tokensper_string_high = 2
-    eurosper_token = c(0.1)  # make sure to change it in both models
+    eurosper_token = c(0.2)  # make sure to change it in both models
     secondsper_token = 10  # if changing this correct SwitchInstructions
 
     increase_per_string = 4
@@ -60,24 +60,24 @@ class Group(BaseGroup):
     def set_incomes(self):
         for p in self.get_players():
             if self.round_number == 2:  # second round is paid to the high wage
-                p.income_strings = p.production_strings * Constants.tokensper_string_high
-                p.income = p.income_strings + p.income_in_switch
+                p.income_strings_gross = p.production_strings * Constants.tokensper_string_high
+                p.net_income = p.income_strings_gross + p.income_in_switch
             else:
-                p.income_strings = p.production_strings * Constants.tokensper_string
-                p.income = p.income_strings + p.income_in_switch
+                p.income_strings_gross = p.production_strings * Constants.tokensper_string
+                p.net_income = p.income_strings_gross + p.income_in_switch
         for p in self.get_players():
-            p.participant.vars[f'income_{self.round_number}'] = p.income
+            p.participant.vars[f'net_income_{self.round_number}'] = p.net_income
             print('vars is', p.participant.vars)
 
     # determine payoffs:
     def set_payoffs(self):
         for p in self.get_players():
-            p.net_income = p.income
+            p.earnings = p.net_income
             p.payoff = p.net_income * Constants.eurosper_token
 
 
 class Player(BasePlayer):
-    # give each player a letter for recognition (Important for Feedback)
+    # give each player a letter for recognition (Important for Feedback and grouping later on)
     def role(self):
         return string.ascii_uppercase[self.id_in_group - 1]
 
@@ -102,10 +102,9 @@ class Player(BasePlayer):
     production_strings = models.FloatField(default=0)
 
     # available income after solving RET
-    income = models.FloatField(default=0)
-    income_strings = models.FloatField(default=0)
-
-    net_income = models.PositiveIntegerField(default=0)
+    income_strings_gross = models.FloatField(default=0)
+    net_income = models.FloatField(default=0)
+    earnings = models.FloatField(default=0)
 
     # Variable is 1 when entering switch
     switch1 = models.PositiveIntegerField(default=0)
