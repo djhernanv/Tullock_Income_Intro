@@ -105,11 +105,15 @@
 
 {% block scripts %}
 
+    {% comment %}
 <script type="text/javascript" src="{% static 'tullock_income_intro/js/bootstrap-tour-standalone.min.js' %}"></script>
 
+
+    <!-- Uncomment to initialize a tour of all elements in the screen (counters, switch, etc -->
     {% if subsession.round_number == 1 %}
 <script type="text/javascript" src="{% static 'tullock_income_intro/js/Tour-RET.js' %}"></script>
     {% endif %}
+    {% endcomment %}
 
         <!-- this needs to be in a separate file. -->
 <script>
