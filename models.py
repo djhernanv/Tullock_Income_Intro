@@ -31,7 +31,7 @@ class Constants(BaseConstants):
 
     tokensper_string = 1
     tokensper_string_high = 2
-    eurosper_token = c(0.2)  # make sure to change it in both models
+    eurosper_token = c(0.1)  # make sure to change it in both models
     secondsper_token = 10  # if changing this correct SwitchInstructions
 
     increase_per_string = 4
