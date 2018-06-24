@@ -41,7 +41,15 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    # save setting values as an extra column
+    def creating_session(self):
+        for p in self.get_players():
+            p.time_per_round = Constants.t  # Total Time in seconds available for both solving and staying in switch
+            p.tokensper_string = Constants.tokensper_string
+            p.tokensper_string_high = Constants.tokensper_string_high
+            p.eurosper_token = Constants.eurosper_token
+            p.secondsper_token = Constants.secondsper_token
+            p.increase_per_string = Constants.increase_per_string
 
 
 class Group(BaseGroup):
@@ -77,6 +85,18 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+
+    # save Constants as an extra column for each observation
+
+    time_per_round = models.PositiveIntegerField()  # Total Time in seconds available for both solving and staying in switch
+
+    tokensper_string = models.PositiveIntegerField()
+    tokensper_string_high = models.PositiveIntegerField()
+    eurosper_token = models.FloatField()
+    secondsper_token = models.PositiveIntegerField()
+
+    increase_per_string = models.PositiveIntegerField()
+
     # give each player a letter for recognition (Important for Feedback and grouping later on)
     def role(self):
         return string.ascii_uppercase[self.id_in_group - 1]
